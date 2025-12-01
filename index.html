@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadiusTarget | Coming Soon</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB', // Royal Blue
+                        secondary: '#1E40AF', // Darker Blue
+                        accent: '#10B981', // Emerald Green
+                        dark: '#0F172A',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-pattern {
+            background-color: #f8fafc;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                        <i class="fa-solid fa-crosshairs text-primary text-2xl"></i>
+                        <span class="font-bold text-xl tracking-tight text-dark">RadiusTarget</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#how-it-works" class="text-gray-600 hover:text-primary transition">How it Works</a>
+                    <a href="#features" class="text-gray-600 hover:text-primary transition">Features</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary transition">Early Access</a>
+                </div>
+                <div>
+                    <!-- Updated CTA -->
+                    <a href="mailto:contact@radiustarget.com?subject=Early%20Access%20Request" class="hidden md:inline-flex items-center justify-center px-5 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-primary hover:bg-secondary transition shadow-md hover:shadow-lg">
+                        <i class="fa-regular fa-envelope mr-2"></i> Contact Us
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-500 hover:text-gray-900 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 hero-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-6 text-center lg:text-left mb-12 lg:mb-0">
+                    <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-blue-50 border border-blue-100 text-primary font-semibold text-sm">
+                        🚧 currently in private beta
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-dark leading-tight mb-6">
+                        Stop Wasting Ad Spend on <span class="text-primary">Empty Space.</span>
+                    </h1>
+                    <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed">
+                        RadiusTarget is building the first AI engine to identify your highest-value geographic hotspots. We are currently accepting early partners for our pilot program.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <!-- Updated Hero CTA -->
+                        <a href="mailto:contact@radiustarget.com?subject=I%20want%20beta%20access%20to%20RadiusTarget" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-white bg-primary hover:bg-secondary transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                            Request Early Access
+                            <i class="fa-regular fa-paper-plane ml-2"></i>
+                        </a>
+                        <a href="#how-it-works" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 transition shadow-sm">
+                            Learn More
+                        </a>
+                    </div>
+                    <div class="mt-8 text-sm text-gray-500 flex items-center justify-center lg:justify-start gap-4">
+                        <span><i class="fa-solid fa-check text-accent mr-1"></i> Limited spots available</span>
+                        <span><i class="fa-solid fa-check text-accent mr-1"></i> Exclusive launch pricing</span>
+                    </div>
+                </div>
+                <!-- Graphic Content -->
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-2xl shadow-2xl bg-white p-2 border border-gray-100">
+                        <!-- Simulated App UI -->
+                        <div class="bg-gray-50 rounded-xl overflow-hidden flex flex-col h-[400px]"> <!-- Fixed height for map -->
+                            
+                            <!-- App Header -->
+                            <div class="bg-white border-b border-gray-200 p-4 flex justify-between items-center z-10 relative">
+                                <div class="flex gap-2">
+                                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                                </div>
+                                <div class="text-xs font-semibold text-gray-400">RadiusTarget AI Engine</div>
+                            </div>
+                            
+                            <!-- Map Container -->
+                            <div id="map-preview" class="flex-grow bg-blue-50 relative z-0"></div>
+
+                            <!-- Floating Card -->
+                            <div class="absolute bottom-4 left-4 bg-white p-3 rounded-lg shadow-lg border border-gray-100 w-48">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="bg-green-100 p-1.5 rounded-md">
+                                        <i class="fa-brands fa-google text-green-600 text-xs"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs font-bold text-gray-800">Optimization Ready</div>
+                                        <div class="text-[10px] text-gray-500">Generating Radii...</div>
+                                    </div>
+                                </div>
+                                <div class="w-full bg-gray-200 h-1.5 rounded-full">
+                                    <div class="bg-accent h-1.5 rounded-full" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Decorative blobs -->
+                    <div class="absolute -z-10 top-1/2 right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+                    <div class="absolute -z-10 top-1/2 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+                </div>
+
+                <!-- Map Initialization Script -->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        // 1. Initialize Map
+                        // We disable scrollWheelZoom to prevent the user from getting stuck while scrolling the page
+                        var map = L.map('map-preview', {
+                            center: [34.0522, -118.2437], // Los Angeles coordinates
+                            zoom: 11,
+                            zoomControl: false, // Hide default zoom controls for a cleaner "app preview" look
+                            scrollWheelZoom: false,
+                            dragging: false // Optional: keeps the map static like a screenshot
+                        });
+
+                        // 2. Add OpenStreetMap Tile Layer
+                        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                            subdomains: 'abcd',
+                            maxZoom: 20
+                        }).addTo(map);
+
+                        // 3. Define Custom "Tailwind" Icons
+                        // We use L.divIcon to inject your exact HTML classes (pulsing effects, colors)
+                        
+                        // Icon 1: Blue (Primary)
+                        var blueIcon = L.divIcon({
+                            className: 'custom-div-icon',
+                            html: `<div class="w-24 h-24 bg-blue-600/20 rounded-full border border-blue-600 flex items-center justify-center animate-pulse relative -left-10 -top-10">
+                                     <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
+                                   </div>`,
+                            iconSize: [0, 0] // Set to 0 because we handle sizing in the HTML above
+                        });
+
+                        // Icon 2: Green (Accent)
+                        var greenIcon = L.divIcon({
+                            className: 'custom-div-icon',
+                            html: `<div class="w-32 h-32 bg-emerald-500/20 rounded-full border border-emerald-500 flex items-center justify-center relative -left-14 -top-14">
+                                     <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                                   </div>`,
+                            iconSize: [0, 0]
+                        });
+
+                        // 4. Add Markers to Map
+                        // You can change these coordinates to place the "radii" wherever you want
+                        L.marker([34.0522, -118.2437], {icon: greenIcon}).addTo(map); // Center
+                        L.marker([34.08, -118.35], {icon: blueIcon}).addTo(map);      // Top Left
+                        L.marker([33.98, -118.15], {icon: blueIcon}).addTo(map);      // Bottom Right
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logos Section -->
+    <section class="py-10 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm font-medium text-gray-500 mb-6 uppercase tracking-wider">Building for Compatibility With</p>
+            <div class="flex justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-700"><i class="fa-brands fa-google text-2xl"></i> Google Ads</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-700"><i class="fa-brands fa-meta text-2xl"></i> Meta Ads</div>
+                <div class="flex items-center gap-2 text-xl font-bold text-gray-700"><i class="fa-brands fa-microsoft text-2xl"></i> Microsoft Ads</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem / Solution -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-dark mb-4">Why City-Targeting Fails</h2>
+                <p class="text-gray-600 text-lg">Most businesses waste 40% of their budget targeting low-intent areas within a city. RadiusTarget uses AI to slice geography into high-performance micro-segments.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="bg-red-50 p-8 rounded-2xl border border-red-100">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600">
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">The Old Way</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-gray-600">
+                            <i class="fa-solid fa-circle-minus text-red-400 mt-1"></i>
+                            Targeting entire cities or zip codes.
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-600">
+                            <i class="fa-solid fa-circle-minus text-red-400 mt-1"></i>
+                            Paying for impressions in industrial zones or lakes.
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-600">
+                            <i class="fa-solid fa-circle-minus text-red-400 mt-1"></i>
+                            Manual, tedious setup in Ads Manager.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-green-50 p-8 rounded-2xl border border-green-100 shadow-lg">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-accent">
+                            <i class="fa-solid fa-check text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">The RadiusTarget Way</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3 text-gray-700 font-medium">
+                            <i class="fa-solid fa-circle-check text-accent mt-1"></i>
+                            Precise 1-5 mile radii around high-value areas.
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 font-medium">
+                            <i class="fa-solid fa-circle-check text-accent mt-1"></i>
+                            Optimal targeting based on lifestyle & behavior.
+                        </li>
+                        <li class="flex items-start gap-3 text-gray-700 font-medium">
+                            <i class="fa-solid fa-circle-check text-accent mt-1"></i>
+                            One-click import to ad platforms.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-dark">Three Steps to Optimized Reach</h2>
+                <p class="text-gray-500 mt-4">From user input to live campaign in seconds.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <!-- Connecting Line (Desktop) -->
+                <div class="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-gray-200 -z-10"></div>
+
+                <!-- Step 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 relative text-center hover:-translate-y-1 transition duration-300">
+                    <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-primary text-2xl font-bold mb-6 border-4 border-white shadow-sm">
+                        1
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Define Audience</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        You define the target audience by selecting their specific <strong>demographics or lifestyles</strong>.
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 relative text-center hover:-translate-y-1 transition duration-300">
+                    <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-primary text-2xl font-bold mb-6 border-4 border-white shadow-sm">
+                        2
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI Generation</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Our <strong>AI model</strong> scans map data to generate high-density clusters that match your profile and places optimized radii.
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 relative text-center hover:-translate-y-1 transition duration-300">
+                    <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-primary text-2xl font-bold mb-6 border-4 border-white shadow-sm">
+                        3
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Export & Launch</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Copy the formatted location set or <strong>bulk push directly</strong> to Google or Meta Ads Manager.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-12 gap-12">
+                <div class="lg:col-span-5 mb-10 lg:mb-0">
+                    <h2 class="text-3xl font-bold text-dark mb-6">Built for Performance Marketers</h2>
+                    <p class="text-gray-600 mb-8">
+                        Whether you are a local business owner or an agency managing 50 clients, RadiusTarget provides the AI tools to scale local relevance globally.
+                    </p>
+                </div>
+                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+                    <!-- Feature 1 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary">
+                            <i class="fa-solid fa-layer-group text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark">Bulk Generation</h4>
+                            <p class="text-sm text-gray-600 mt-1">Create hundreds of custom location radii across multiple cities in seconds.</p>
+                        </div>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary">
+                            <i class="fa-solid fa-file-csv text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark">Universal Compatibility</h4>
+                            <p class="text-sm text-gray-600 mt-1">Outputs formats perfectly tuned for Google Ads Editor and Facebook Business Manager.</p>
+                        </div>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary">
+                            <i class="fa-solid fa-brain text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark">AI Intelligence</h4>
+                            <p class="text-sm text-gray-600 mt-1">Our model learns from geospatial density data to find your perfect customer pockets.</p>
+                        </div>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary">
+                            <i class="fa-solid fa-people-group text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-dark">Lifestyle Matching</h4>
+                            <p class="text-sm text-gray-600 mt-1">Target by behavior and lifestyle, not just basic age or gender demographics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Early Access / Benefits (Replaced Pricing) -->
+    <section class="py-20 bg-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-4">Be the First to Target Smarter</h2>
+            <p class="text-gray-400 mb-12 max-w-2xl mx-auto">We are onboarding a select group of agencies and businesses to test the platform before our public launch.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Benefit 1 -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
+                    <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary mb-6 mx-auto">
+                        <i class="fa-solid fa-star text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Lifetime Discount</h3>
+                    <p class="text-gray-400 text-sm">Early partners will lock in a significant discount on all future pricing plans forever.</p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
+                    <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center text-accent mb-6 mx-auto">
+                        <i class="fa-solid fa-handshake text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Personalized Onboarding</h3>
+                    <p class="text-gray-400 text-sm">Our founders will manually help you set up your first radius maps to ensure success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Footer -->
+    <section id="contact" class="py-20 bg-blue-600">
+        <div class="max-w-4xl mx-auto px-4 text-center text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to secure your spot?</h2>
+            <p class="text-blue-100 text-lg mb-8">Send us an email to get added to the priority waitlist. We'll be in touch shortly.</p>
+            
+            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 max-w-lg mx-auto">
+                <p class="text-sm font-medium text-blue-100 mb-4 uppercase tracking-widest">Contact the Team</p>
+                <a href="mailto:contact@radiustarget.com?subject=Early%20Access%20Request" class="flex items-center justify-center w-full px-8 py-4 bg-white text-blue-600 rounded-lg font-bold shadow-lg hover:bg-gray-100 transition mb-3">
+                    <i class="fa-regular fa-envelope mr-3"></i> contact@radiustarget.com
+                </a>
+                <p class="text-xs text-blue-200 mt-4">Click above to open your email client directly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-crosshairs text-primary text-xl"></i>
+                    <span class="font-bold text-lg text-dark">RadiusTarget</span>
+                </div>
+                
+                <p class="text-sm text-gray-500">&copy; 2026 RadiusTarget Inc. All rights reserved.</p>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-primary"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-primary"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
