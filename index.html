@@ -1,441 +1,824 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RadiusTarget | Precision Geo-Targeting for Ads</title>
-    
-    <!-- Tailwind CSS -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>RadiusTarget | Precision Geo Targeting for Google & Meta Ads</title>
+    <meta name="description"
+        content="Don't waste 40% of your budget on poor location targeting. RadiusTarget uses AI for precise geo targeting to drive your geo advertising with hyper targeted ads.">
+    <meta name="keywords"
+        content="geo targeting, geo advertising, hyper targeted ads, geo targeted ads, radius targeting, location targeting, ad spend optimization, Google Ads location targeting, AI marketing">
+    <meta name="author" content="RadiusTarget Inc.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.radiustarget.com/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.radiustarget.com/">
+    <meta property="og:title" content="RadiusTarget | Target Where Your Customers Actually Live">
+    <meta property="og:description"
+        content="Don't waste 40% of your budget on poor location targeting. RadiusTarget uses AI for precise geo targeting to drive your geo advertising with hyper targeted ads.">
+    <meta property="og:image" content="static/assets/images/about/og-social-share.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.radiustarget.com/">
+    <meta property="twitter:title" content="RadiusTarget | AI Precision Geo-Targeting">
+    <meta property="twitter:description"
+        content="Don't waste 40% of your budget on poor location targeting. RadiusTarget uses AI for precise geo targeting to drive your geo advertising with hyper targeted ads.">
+    <meta property="twitter:image" content="static/assets/images/about/og-social-share.jpg">
+
+    <link rel="icon" type="image/svg+xml" href="static/assets/images/logo/logo.svg">
+    <meta name="theme-color" content="#F75C30">
+
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"RadiusTarget","alternateName":["Radius Target","RadiusTarget"],"url":"https://www.radiustarget.com/"}</script>
+    <script
+        type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"RadiusTarget","headline":"AI-Powered Precision Geo-Targeting","applicationCategory":"BusinessApplication","operatingSystem":"Web","offering":{"@type":"Offer","price":"0","priceCurrency":"USD","availability":"https://schema.org/OnlineOnly"},"description":"RadiusTarget is an AI engine that optimizes advertising spend by converting broad geographic targeting into precise, high-intent 1-mile radius target clusters.","publisher":{"@type":"Organization","name":"RadiusTarget Inc.","url":"https://www.radiustarget.com"}}</script>
+
+    <!-- AMPLITUDE -->
+    <script src="https://cdn.amplitude.com/script/17544d82730aef9efd6f5a50d64283df.js" defer></script>
+    <script>
+        window.amplitude.add(window.sessionReplay.plugin({ sampleRate: 1 }));
+        window.amplitude.init('17544d82730aef9efd6f5a50d64283df', {
+            "fetchRemoteConfig": true,
+            "autocapture": {
+                "attribution": true,
+                "fileDownloads": true,
+                "formInteractions": true,
+                "pageViews": true,
+                "sessions": true,
+                "elementInteractions": true,
+                "networkTracking": true,
+                "webVitals": true,
+                "frustrationInteractions": true
+            }
+        });
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17820190602" fetchpriority="low" defer></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-17820190602');
+    </script>
+    <script>
+        function gtag_report_conversion(url) {
+            var callback = function () { if (typeof (url) != 'undefined') { window.location = url; } };
+            var handled = false;
+            var safeCallback = function () { if (!handled) { handled = true; callback(); } };
+            setTimeout(safeCallback, 500);
+            if (typeof gtag === 'function') { gtag('event', 'conversion', { 'send_to': 'AW-17820190602/eo95CN3MjdUbEIqPqrFC', 'event_callback': safeCallback }); } else { safeCallback(); }
+            return false;
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.amplitude.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome for Icons -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Leaflet CSS & JS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+
+    <link rel="stylesheet" href="static/assets/css/style.css">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+                        sans: ['DM Sans', 'sans-serif'],
+                        serif: ['DM Serif Display', 'serif'],
                     },
                     colors: {
-                        primary: '#2563EB', // Royal Blue
-                        secondary: '#1E40AF', // Darker Blue
-                        accent: '#10B981', // Emerald Green
+                        primary: '#2563EB',
+                        secondary: '#F75C30',
+                        accent: '#10B981',
                         dark: '#0F172A',
+                        cream: '#F9F9F9',
                     }
                 }
             }
         }
     </script>
-    
-    <style>
-        .hero-pattern {
-            background-color: #f8fafc;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e2e8f0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-    </style>
 </head>
-<body class="font-sans text-gray-700 antialiased overflow-x-hidden">
+
+<body>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-                        <i class="fa-solid fa-crosshairs text-primary text-2xl"></i>
+                    <a href="#" class="flex-shrink-0 flex items-center gap-2 cursor-pointer"
+                        aria-label="RadiusTarget Home">
+                        <img src="static/assets/images/logo/logo.svg" alt="RadiusTarget Logo"
+                            class="w-8 h-8" width="32" height="32" fetchpriority="high">
                         <span class="font-bold text-xl tracking-tight text-dark">RadiusTarget</span>
-                    </div>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#how-it-works" class="text-gray-600 hover:text-primary transition">How it Works</a>
-                    <a href="#features" class="text-gray-600 hover:text-primary transition">Features</a>
-                    <a href="#contact" class="text-gray-600 hover:text-primary transition">Early Access</a>
-                </div>
-                <div>
-                    <!-- Updated CTA -->
-                    <a href="mailto:contact@radiustarget.com?subject=Early%20Access%20Request" class="hidden md:inline-flex items-center justify-center px-5 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-primary hover:bg-secondary transition shadow-md hover:shadow-lg">
-                        <i class="fa-regular fa-envelope mr-2"></i> Contact Us
                     </a>
                 </div>
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button class="text-gray-500 hover:text-gray-900 focus:outline-none">
-                        <i class="fa-solid fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 hero-pattern">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
-                <!-- Text Content -->
-                <div class="lg:col-span-6 text-center lg:text-left mb-12 lg:mb-0">
-                    <div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-blue-50 border border-blue-100 text-primary font-semibold text-sm">
-                        🚧 currently in private beta
-                    </div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-dark leading-tight mb-6">
-                        Stop Wasting Ad Spend on <span class="text-primary">Empty Space.</span>
-                    </h1>
-                    <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed">
-                        RadiusTarget is building the first AI engine to identify your highest-value geographic hotspots. We are currently accepting early partners for our pilot program.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <!-- Updated Hero CTA -->
-                        <a href="mailto:contact@radiustarget.com?subject=I%20want%20beta%20access%20to%20RadiusTarget" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-white bg-primary hover:bg-secondary transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-                            Request Early Access
-                            <i class="fa-regular fa-paper-plane ml-2"></i>
-                        </a>
-                        <a href="#how-it-works" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 transition shadow-sm">
-                            Learn More
-                        </a>
-                    </div>
-                    <div class="mt-8 text-sm text-gray-500 flex items-center justify-center lg:justify-start gap-4">
-                        <span><i class="fa-solid fa-check text-accent mr-1"></i> Limited spots available</span>
-                        <span><i class="fa-solid fa-check text-accent mr-1"></i> Exclusive launch pricing</span>
-                    </div>
-                </div>
-                <!-- Graphic Content -->
-                <div class="lg:col-span-6 relative">
-                    <div class="relative rounded-2xl shadow-2xl bg-white p-2 border border-gray-100">
-                        <!-- Simulated App UI -->
-                        <div class="bg-gray-50 rounded-xl overflow-hidden flex flex-col h-[400px]"> <!-- Fixed height for map -->
-                            
-                            <!-- App Header -->
-                            <div class="bg-white border-b border-gray-200 p-4 flex justify-between items-center z-10 relative">
-                                <div class="flex gap-2">
-                                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                                </div>
-                                <div class="text-xs font-semibold text-gray-400">RadiusTarget AI Engine</div>
-                            </div>
-                            
-                            <!-- Map Container -->
-                            <div id="map-preview" class="flex-grow bg-blue-50 relative z-0"></div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#how-it-works" class="text-gray-600 hover:text-secondary transition font-medium">How it
+                        Works</a>
+                    <a href="#features" class="text-gray-600 hover:text-secondary transition font-medium">Features</a>
+                    <a href="#demo" class="text-gray-600 hover:text-secondary transition font-medium">Demo</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-secondary transition font-medium">Pricing</a>
+                    <a href="#contact" class="text-gray-600 hover:text-secondary transition font-medium">Contact Us</a>
+                </nav>
 
-                            <!-- Floating Card -->
-                            <div class="absolute bottom-4 left-4 bg-white p-3 rounded-lg shadow-lg border border-gray-100 w-48">
-                                <div class="flex items-center gap-3 mb-2">
-                                    <div class="bg-green-100 p-1.5 rounded-md">
-                                        <i class="fa-brands fa-google text-green-600 text-xs"></i>
-                                    </div>
-                                    <div>
-                                        <div class="text-xs font-bold text-gray-800">Optimization Ready</div>
-                                        <div class="text-[10px] text-gray-500">Generating Radii...</div>
-                                    </div>
-                                </div>
-                                <div class="w-full bg-gray-200 h-1.5 rounded-full">
-                                    <div class="bg-accent h-1.5 rounded-full" style="width: 100%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Decorative blobs -->
-                    <div class="absolute -z-10 top-1/2 right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-                    <div class="absolute -z-10 top-1/2 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-                </div>
-
-                <!-- Map Initialization Script -->
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        // 1. Initialize Map
-                        // We disable scrollWheelZoom to prevent the user from getting stuck while scrolling the page
-                        var map = L.map('map-preview', {
-                            center: [34.0522, -118.2437], // Los Angeles coordinates
-                            zoom: 11,
-                            zoomControl: false, // Hide default zoom controls for a cleaner "app preview" look
-                            scrollWheelZoom: false,
-                            dragging: false // Optional: keeps the map static like a screenshot
-                        });
-
-                        // 2. Add OpenStreetMap Tile Layer
-                        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-                            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-                            subdomains: 'abcd',
-                            maxZoom: 20
-                        }).addTo(map);
-
-                        // 3. Define Custom "Tailwind" Icons
-                        // We use L.divIcon to inject your exact HTML classes (pulsing effects, colors)
-                        
-                        // Icon 1: Blue (Primary)
-                        var blueIcon = L.divIcon({
-                            className: 'custom-div-icon',
-                            html: `<div class="w-24 h-24 bg-blue-600/20 rounded-full border border-blue-600 flex items-center justify-center animate-pulse relative -left-10 -top-10">
-                                     <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
-                                   </div>`,
-                            iconSize: [0, 0] // Set to 0 because we handle sizing in the HTML above
-                        });
-
-                        // Icon 2: Green (Accent)
-                        var greenIcon = L.divIcon({
-                            className: 'custom-div-icon',
-                            html: `<div class="w-32 h-32 bg-emerald-500/20 rounded-full border border-emerald-500 flex items-center justify-center relative -left-14 -top-14">
-                                     <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
-                                   </div>`,
-                            iconSize: [0, 0]
-                        });
-
-                        // 4. Add Markers to Map
-                        // You can change these coordinates to place the "radii" wherever you want
-                        L.marker([34.0522, -118.2437], {icon: greenIcon}).addTo(map); // Center
-                        L.marker([34.08, -118.35], {icon: blueIcon}).addTo(map);      // Top Left
-                        L.marker([33.98, -118.15], {icon: blueIcon}).addTo(map);      // Bottom Right
-                    });
-                </script>
-            </div>
-        </div>
-    </section>
-
-    <!-- Logos Section -->
-    <section class="py-10 bg-white border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-sm font-medium text-gray-500 mb-6 uppercase tracking-wider">Building for Compatibility With</p>
-            <div class="flex justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition duration-500">
-                <div class="flex items-center gap-2 text-xl font-bold text-gray-700"><i class="fa-brands fa-google text-2xl"></i> Google Ads</div>
-                <div class="flex items-center gap-2 text-xl font-bold text-gray-700"><i class="fa-brands fa-meta text-2xl"></i> Meta Ads</div>
-                <div class="flex items-center gap-2 text-xl font-bold text-gray-700"><i class="fa-brands fa-microsoft text-2xl"></i> Microsoft Ads</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Problem / Solution -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold text-dark mb-4">Why City-Targeting Fails</h2>
-                <p class="text-gray-600 text-lg">Most businesses waste 40% of their budget targeting low-intent areas within a city. RadiusTarget uses AI to slice geography into high-performance micro-segments.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="bg-red-50 p-8 rounded-2xl border border-red-100">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center text-red-600">
-                            <i class="fa-solid fa-xmark text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">The Old Way</h3>
-                    </div>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3 text-gray-600">
-                            <i class="fa-solid fa-circle-minus text-red-400 mt-1"></i>
-                            Targeting entire cities or zip codes.
-                        </li>
-                        <li class="flex items-start gap-3 text-gray-600">
-                            <i class="fa-solid fa-circle-minus text-red-400 mt-1"></i>
-                            Paying for impressions in industrial zones or lakes.
-                        </li>
-                        <li class="flex items-start gap-3 text-gray-600">
-                            <i class="fa-solid fa-circle-minus text-red-400 mt-1"></i>
-                            Manual, tedious setup in Ads Manager.
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="bg-green-50 p-8 rounded-2xl border border-green-100 shadow-lg">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-accent">
-                            <i class="fa-solid fa-check text-xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800">The RadiusTarget Way</h3>
-                    </div>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3 text-gray-700 font-medium">
-                            <i class="fa-solid fa-circle-check text-accent mt-1"></i>
-                            Precise 1-5 mile radii around high-value areas.
-                        </li>
-                        <li class="flex items-start gap-3 text-gray-700 font-medium">
-                            <i class="fa-solid fa-circle-check text-accent mt-1"></i>
-                            Optimal targeting based on lifestyle & behavior.
-                        </li>
-                        <li class="flex items-start gap-3 text-gray-700 font-medium">
-                            <i class="fa-solid fa-circle-check text-accent mt-1"></i>
-                            One-click import to ad platforms.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section id="how-it-works" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-dark">Three Steps to Optimized Reach</h2>
-                <p class="text-gray-500 mt-4">From user input to live campaign in seconds.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8 relative">
-                <!-- Connecting Line (Desktop) -->
-                <div class="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-gray-200 -z-10"></div>
-
-                <!-- Step 1 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 relative text-center hover:-translate-y-1 transition duration-300">
-                    <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-primary text-2xl font-bold mb-6 border-4 border-white shadow-sm">
-                        1
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Define Audience</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        You define the target audience by selecting their specific <strong>demographics or lifestyles</strong>.
-                    </p>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 relative text-center hover:-translate-y-1 transition duration-300">
-                    <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-primary text-2xl font-bold mb-6 border-4 border-white shadow-sm">
-                        2
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">AI Generation</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Our <strong>AI model</strong> scans map data to generate high-density clusters that match your profile and places optimized radii.
-                    </p>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 relative text-center hover:-translate-y-1 transition duration-300">
-                    <div class="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center text-primary text-2xl font-bold mb-6 border-4 border-white shadow-sm">
-                        3
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Export & Launch</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        Copy the formatted location set or <strong>bulk push directly</strong> to Google or Meta Ads Manager.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section id="features" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="lg:grid lg:grid-cols-12 gap-12">
-                <div class="lg:col-span-5 mb-10 lg:mb-0">
-                    <h2 class="text-3xl font-bold text-dark mb-6">Built for Performance Marketers</h2>
-                    <p class="text-gray-600 mb-8">
-                        Whether you are a local business owner or an agency managing 50 clients, RadiusTarget provides the AI tools to scale local relevance globally.
-                    </p>
-                </div>
-                <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
-                    <!-- Feature 1 -->
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary">
-                            <i class="fa-solid fa-layer-group text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-dark">Bulk Generation</h4>
-                            <p class="text-sm text-gray-600 mt-1">Create hundreds of custom location radii across multiple cities in seconds.</p>
-                        </div>
-                    </div>
-                    <!-- Feature 2 -->
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary">
-                            <i class="fa-solid fa-file-csv text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-dark">Universal Compatibility</h4>
-                            <p class="text-sm text-gray-600 mt-1">Outputs formats perfectly tuned for Google Ads Editor and Facebook Business Manager.</p>
-                        </div>
-                    </div>
-                    <!-- Feature 3 -->
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary">
-                            <i class="fa-solid fa-brain text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-dark">AI Intelligence</h4>
-                            <p class="text-sm text-gray-600 mt-1">Our model learns from geospatial density data to find your perfect customer pockets.</p>
-                        </div>
-                    </div>
-                    <!-- Feature 4 -->
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center text-primary">
-                            <i class="fa-solid fa-people-group text-xl"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-dark">Lifestyle Matching</h4>
-                            <p class="text-sm text-gray-600 mt-1">Target by behavior and lifestyle, not just basic age or gender demographics.</p>
-                        </div>
+                <div class="flex items-center gap-4">
+                    <a id="btn-book-demo-desktop" href="https://cal.com/radiustarget-sdfkbe/radiustarget-demo-use-case-review"
+                        onclick="return gtag_report_conversion(this.href);"
+                        class="hidden md:inline-flex items-center justify-center px-5 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-secondary hover:bg-orange-600 transition shadow-md hover:shadow-lg">
+                        <i class="fa-regular fa-calendar-check mr-2"></i> Book a Demo
+                    </a>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-900 focus:outline-none p-2"
+                            aria-label="Toggle mobile menu">
+                            <i class="fa-solid fa-bars text-xl"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Early Access / Benefits (Replaced Pricing) -->
-    <section class="py-20 bg-dark text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold mb-4">Be the First to Target Smarter</h2>
-            <p class="text-gray-400 mb-12 max-w-2xl mx-auto">We are onboarding a select group of agencies and businesses to test the platform before our public launch.</p>
-            
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                <!-- Benefit 1 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
-                    <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-primary mb-6 mx-auto">
-                        <i class="fa-solid fa-star text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Lifetime Discount</h3>
-                    <p class="text-gray-400 text-sm">Early partners will lock in a significant discount on all future pricing plans forever.</p>
-                </div>
-
-                <!-- Benefit 2 -->
-                <div class="bg-gray-800 p-8 rounded-2xl border border-gray-700">
-                    <div class="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center text-accent mb-6 mx-auto">
-                        <i class="fa-solid fa-handshake text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Personalized Onboarding</h3>
-                    <p class="text-gray-400 text-sm">Our founders will manually help you set up your first radius maps to ensure success.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Footer -->
-    <section id="contact" class="py-20 bg-blue-600">
-        <div class="max-w-4xl mx-auto px-4 text-center text-white">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to secure your spot?</h2>
-            <p class="text-blue-100 text-lg mb-8">Send us an email to get added to the priority waitlist. We'll be in touch shortly.</p>
-            
-            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 max-w-lg mx-auto">
-                <p class="text-sm font-medium text-blue-100 mb-4 uppercase tracking-widest">Contact the Team</p>
-                <a href="mailto:contact@radiustarget.com?subject=Early%20Access%20Request" class="flex items-center justify-center w-full px-8 py-4 bg-white text-blue-600 rounded-lg font-bold shadow-lg hover:bg-gray-100 transition mb-3">
-                    <i class="fa-regular fa-envelope mr-3"></i> contact@radiustarget.com
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0">
+            <nav class="px-4 pt-4 pb-6 space-y-2 shadow-lg">
+                <a href="#how-it-works"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-orange-50">How
+                    it Works</a>
+                <a href="#features"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-orange-50">Features</a>
+                <a href="#demo"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-orange-50">Demo</a>
+                <a href="#pricing"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-orange-50">Pricing</a>
+                <a href="#contact"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-secondary hover:bg-orange-50">Contact
+                    Us</a>
+                <a id="btn-book-demo-mobile" href="https://cal.com/radiustarget-sdfkbe/radiustarget-demo-use-case-review"
+                    onclick="return gtag_report_conversion(this.href);"
+                    class="block mt-4 text-center px-5 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-secondary hover:bg-orange-600 shadow-sm">
+                    <i class="fa-regular fa-calendar-check mr-2"></i> Book a Demo
                 </a>
-                <p class="text-xs text-blue-200 mt-4">Click above to open your email client directly.</p>
-            </div>
+            </nav>
         </div>
-    </section>
+    </header>
+
+    <main>
+
+        <!-- ══════════════════════════════════════════ HERO ══ -->
+        <section class="hero-section relative pt-32 pb-20 lg:pt-44 lg:pb-32">
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="lg:grid lg:grid-cols-12 lg:gap-14 items-center">
+
+                    <!-- Text -->
+                    <div class="lg:col-span-6 text-center lg:text-left mb-14 lg:mb-0">
+
+                        <div class="hero-badge anim-fade-up mb-7">
+                            <span class="dot"></span>
+                            Trusted By 100+ Marketing Professionals
+                        </div>
+
+                        <h1 class="hero-h1 anim-fade-up delay-1 mb-6">
+                            Stop Wasting Ad Spend on <span class="accent">Empty Space.</span>
+                        </h1>
+
+                        <p class="anim-fade-up delay-2 mb-9"
+                            style="font-size:1.0625rem; line-height:1.72; color:#4B5563; max-width:500px;">
+                            Don't target whole cities. Identify precise geo targets down to 1-mile radii where your
+                            customers actually live.
+                        </p>
+
+                        <div
+                            class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start anim-fade-up delay-3">
+<!--                            <button id="btn-request-access" type="button"-->
+<!--                                onclick="return gtag_report_conversion(this.href);"-->
+<!--                                class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-white bg-secondary hover:bg-orange-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer">-->
+<!--                                Join Waitlist <i class="fa-solid fa-arrow-right ml-2"></i>-->
+<!--                            </button>-->
+                            <a href="mailto:contact@radiustarget.com?subject=RadiusTarget%20Access%20Request&body=Hi%2C%20I%27d%20like%20to%20join%20the%20RadiusTarget%20waitlist."
+                                onclick="return gtag_report_conversion(this.href);"
+                                class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-white bg-secondary hover:bg-orange-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer">
+                                Join Waitlist <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </a>
+                            <a id="btn-watch-demo-hero" href="#demo"
+                                class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg text-gray-700 bg-white border border-gray-200 hover:bg-gray-50 transition shadow-sm">
+                                <i class="fa-solid fa-play mr-2 text-gray-400" style="font-size:0.65rem"></i> Watch Demo
+                            </a>
+                        </div>
+
+                        <div class="hero-trust anim-fade-up delay-4 justify-center lg:justify-start">
+                            <span><i class="fa-solid fa-check"></i> Nationwide Coverage</span>
+                            <span><i class="fa-solid fa-check"></i> Enterprise-grade security</span>
+                        </div>
+
+                        <!-- Stats bar -->
+                        <div class="hero-stat-bar anim-fade-up delay-4">
+                            <div class="flex gap-8 justify-center lg:justify-start">
+                                <div class="text-center lg:text-left">
+                                    <div class="hero-stat-value">40%</div>
+                                    <div class="hero-stat-label">Budget saved on avg.</div>
+                                </div>
+                                <div class="hero-stat-divider"></div>
+                                <div class="text-center lg:text-left">
+                                    <div class="hero-stat-value">1 mi</div>
+                                    <div class="hero-stat-label">Minimum radius precision</div>
+                                </div>
+                                <div class="hero-stat-divider"></div>
+                                <div class="text-center lg:text-left">
+                                    <div class="hero-stat-value">60s</div>
+                                    <div class="hero-stat-label">Setup time</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map visual -->
+                    <div class="lg:col-span-6 relative anim-fade-up delay-2 select-none">
+                        <div class="map-card-wrap">
+                            <div id="map-container"
+                                class="bg-gray-50 rounded-xl overflow-hidden flex flex-col h-[420px] relative"
+                                style="border-radius:14px; background:#f8f9fb;">
+                                <div
+                                    class="map-card-bar bg-white border-b border-gray-200 p-4 flex justify-between items-center z-30 relative">
+                                    <div class="flex gap-2">
+                                        <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                                        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                                        <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                                    </div>
+                                </div>
+                                <div class="relative flex-grow w-full h-full group overflow-hidden">
+                                    <div id="map-after" class="absolute inset-0 w-full h-full z-0"></div>
+                                    <div
+                                        class="absolute bottom-6 right-4 z-0 bg-secondary/90 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded-md shadow-sm">
+                                        <i class="fa-solid fa-check mr-1"></i> RadiusTarget AI
+                                    </div>
+                                    <div id="before-wrapper"
+                                        class="absolute left-0 top-0 bottom-0 z-10 overflow-hidden border-r-4 border-white shadow-2xl"
+                                        style="width: 50%;">
+                                        <div id="map-before-inner" class="h-full relative">
+                                            <div id="map-before" class="w-full h-full"></div>
+                                            <div
+                                                class="absolute bottom-6 left-4 z-[400] bg-white/90 backdrop-blur text-gray-500 text-xs font-bold px-3 py-1.5 rounded-md shadow-sm border border-gray-200 whitespace-nowrap">
+                                                <i class="fa-solid fa-xmark text-red-500 mr-1"></i> City-Wide
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="slider-handle"
+                                        class="absolute top-1/2 z-20 -translate-y-1/2 flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-lg cursor-ew-resize hover:scale-110 transition-transform text-secondary border-2 border-secondary"
+                                        style="left: calc(50% - 20px);">
+                                        <i class="fa-solid fa-arrows-left-right text-sm"></i>
+                                    </div>
+                                    <input type="range" min="0" max="100" value="50" id="comparison-slider"
+                                        class="absolute inset-0 z-30 w-full h-full opacity-0 cursor-ew-resize"
+                                        aria-label="Map comparison slider">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Floating accent -->
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-full opacity-20 pointer-events-none"
+                            style="background:radial-gradient(circle, rgba(247,92,48,0.15) 0%, transparent 70%); filter:blur(30px);">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════ INTEGRATIONS BAR ══ -->
+        <section class="integrations-bar py-8">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <p class="text-sm font-medium uppercase tracking-widest mb-6" style="color:#94A3B8;">Seamlessly
+                    Integrates With</p>
+                <div class="flex justify-center items-center gap-10 md:gap-20">
+                    <div class="integration-chip"><i class="fa-brands fa-google text-xl"></i> Google Ads</div>
+                    <div class="integration-chip"><i class="fa-brands fa-meta text-xl"></i> Meta Ads</div>
+                    <div class="integration-chip"><i class="fa-brands fa-microsoft text-xl"></i> Microsoft Ads</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════ DEMO VIDEO ══ -->
+        <section id="demo" class="py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center mb-14 reveal">
+                    <div class="section-label"><i class="fa-solid fa-play"></i> Demo</div>
+                    <h2 class="text-3xl font-bold text-dark mb-4">See RadiusTarget in Action</h2>
+                    <p style="color:#475569; font-size:1.0625rem;">Watch how we generate hyper-targeted ad radii in
+                        under 60 seconds.</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto reveal">
+                    <div class="demo-frame aspect-video bg-black">
+                        <iframe class="w-full h-full" loading="lazy" src="https://www.youtube.com/embed/55hmgjUmLXc?si=k8_8DC5cHisnkOq8"
+                            title="RadiusTarget Demo" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                        <iframe id="youtube-player" class="w-full h-full" src="https://www.youtube.com/embed/55hmgjUmLXc?si=k8_8DC5cHisnkOq8&enablejsapi=1"
+                            title="RadiusTarget Demo" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════ PROBLEM / SOLUTION ══ -->
+        <section class="problem-solution-section py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                    <div class="section-label"><i class="fa-solid fa-bolt"></i> The Problem</div>
+                    <h2 class="text-3xl font-bold text-dark mb-4">Why City-Targeting Fails</h2>
+                    <p style="color:#475569; font-size:1.0625rem; line-height:1.7;">
+                        Most businesses waste 40% of their budget targeting low-intent areas within a city. RadiusTarget
+                        uses AI to slice geography into high-performance micro-segments.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 items-stretch max-w-4xl mx-auto">
+                    <article class="problem-card reveal reveal-delay-1">
+                        <div class="card-icon card-icon-bad"><i class="fa-solid fa-xmark"></i></div>
+                        <h3 class="text-xl font-bold text-gray-800" style="color:#475569;">The Old Way</h3>
+                        <ul>
+                            <li class="check-item check-item-bad">
+                                <i class="fa-solid fa-circle-minus icon-bad"></i>
+                                <span>Targeting entire cities or zip codes.</span>
+                            </li>
+                            <li class="check-item check-item-bad">
+                                <i class="fa-solid fa-circle-minus icon-bad"></i>
+                                <span>Paying for impressions in industrial zones or lakes.</span>
+                            </li>
+                            <li class="check-item check-item-bad">
+                                <i class="fa-solid fa-circle-minus icon-bad"></i>
+                                <span>Manual, tedious setup in Ads Manager.</span>
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article class="solution-card reveal reveal-delay-2">
+                        <div class="card-icon card-icon-good"><i class="fa-solid fa-check"></i></div>
+                        <h3 class="text-xl font-bold text-gray-800">The RadiusTarget Way</h3>
+                        <ul>
+                            <li class="check-item check-item-good">
+                                <i class="fa-solid fa-circle-check icon-good"></i>
+                                <span>Precise 1-5 mile radii around high-value areas.</span>
+                            </li>
+                            <li class="check-item check-item-good">
+                                <i class="fa-solid fa-circle-check icon-good"></i>
+                                <span>Optimal targeting based on lifestyle &amp; behavior.</span>
+                            </li>
+                            <li class="check-item check-item-good">
+                                <i class="fa-solid fa-circle-check icon-good"></i>
+                                <span>One-click import to ad platforms.</span>
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════ HOW IT WORKS ══════ -->
+        <section id="how-it-works" class="py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                    <div class="section-label"><i class="fa-solid fa-gears"></i> Process</div>
+                    <h2 class="text-4xl font-bold text-dark mb-4">How It Works</h2>
+                    <p style="color:#475569; font-size:1.0625rem; line-height:1.7;">
+                        A quick overview of how our AI engine transforms your inputs into precise geo-targets.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                    <div class="step-card reveal reveal-delay-1">
+                        <span class="step-num">01</span>
+                        <div class="step-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                        <div class="h-48 mb-4 flex items-center justify-center overflow-hidden">
+                            <img src="static/assets/images/infographics/infographic-01.png"
+                                alt="User defining campaign parameters" class="w-full h-full object-contain"
+                                loading="lazy">
+                        </div>
+                        <h3 class="mb-2">Define Your Campaign</h3>
+                        <p style="font-size:0.9rem;color:#94A3B8;line-height:1.65;">Simply tell us who you want to
+                            reach, what you are selling, and the general geography. Our system prepares the data for
+                            analysis.</p>
+                    </div>
+
+                    <div class="step-card reveal reveal-delay-2">
+                        <span class="step-num">02</span>
+                        <div class="step-icon"><i class="fa-solid fa-brain"></i></div>
+                        <div class="h-48 mb-4 flex items-center justify-center overflow-hidden">
+                            <img src="static/assets/images/infographics/infographic-02.png"
+                                alt="AI analyzing spatial data" class="w-full h-full object-contain" loading="lazy">
+                        </div>
+                        <h3 class="mb-2">AI Processing &amp; Analysis</h3>
+                        <p style="font-size:0.9rem;color:#94A3B8;line-height:1.65;">Our model analyzes spatial
+                            distribution, demographics, lifestyle indicators, and competitor locations to find
+                            high-intent clusters.</p>
+                    </div>
+
+                    <div class="step-card reveal reveal-delay-3">
+                        <span class="step-num">03</span>
+                        <div class="step-icon"><i class="fa-solid fa-crosshairs"></i></div>
+                        <div class="h-48 mb-4 flex items-center justify-center overflow-hidden">
+                            <img src="static/assets/images/infographics/infographic-03.png"
+                                alt="Generating radius targets" class="w-full h-full object-contain" loading="lazy">
+                        </div>
+                        <h3 class="mb-2">Precise Geo Targeting</h3>
+                        <p style="font-size:0.9rem;color:#94A3B8;line-height:1.65;">We generate optimal target circles
+                            down to a 1-mile radius, cutting out waste and focusing budget purely on effectiveness.</p>
+                    </div>
+
+                    <div class="step-card reveal reveal-delay-4">
+                        <span class="step-num">04</span>
+                        <div class="step-icon"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                        <div class="h-48 mb-4 flex items-center justify-center overflow-hidden">
+                            <img src="static/assets/images/infographics/infographic-04.png"
+                                alt="Exporting to ad platforms" class="w-full h-full object-contain" loading="lazy">
+                        </div>
+                        <h3 class="mb-2">Ad Platform Import</h3>
+                        <p style="font-size:0.9rem;color:#94A3B8;line-height:1.65;">Seamlessly import your optimized
+                            geo-targets directly into Google Ads, Meta Ads Manager, and Microsoft Advertising.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ FEATURES ══ -->
+        <section id="features" class="py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:grid lg:grid-cols-12 gap-16 items-start">
+
+                    <!-- Sticky left -->
+                    <div class="lg:col-span-5 lg:sticky lg:top-32 mb-14 lg:mb-0 reveal">
+                        <div class="section-label"><i class="fa-solid fa-bolt"></i> Powerful Tools</div>
+                        <h2 class="text-4xl font-bold text-dark mb-6 leading-tight">
+                            Built for <br>
+                            <span
+                                class="text-transparent bg-clip-text bg-gradient-to-r from-dark to-gray-500">Performance
+                                Marketers.</span>
+                        </h2>
+                        <p style="color:#475569; font-size:1.0625rem; line-height:1.7; margin-bottom:2rem;">
+                            Whether you are a local business owner or an agency managing 50 clients, RadiusTarget
+                            provides the enterprise-grade AI tools to scale local relevance globally.
+                        </p>
+                        <a href="#demo" class="inline-flex items-center gap-2 font-semibold transition-all group"
+                            style="color:#F75C30;">
+                            See the technology in action
+                            <i
+                                class="fa-solid fa-arrow-right text-sm transition-transform group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+
+                    <!-- Feature cards -->
+                    <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+                        <div class="feature-card reveal reveal-delay-1">
+                            <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+                            <h3 class="mb-2">Bulk Generation</h3>
+                            <p style="font-size:0.9rem;color:#94A3B8;line-height:1.65;">Create hundreds of custom
+                                location radii across multiple cities in seconds. No more manual plotting.</p>
+                        </div>
+                        <div class="feature-card reveal reveal-delay-2">
+                            <div class="feature-icon"><i class="fa-solid fa-file-csv"></i></div>
+                            <h3 class="mb-2">Universal Export</h3>
+                            <p style="font-size:0.9rem;color:#94A3B8;line-height:1.65;">Outputs formats perfectly tuned
+                                for direct import into Google Ads Editor, Meta Business Manager, and Microsoft
+                                Advertising.</p>
+                        </div>
+                        <div class="feature-card reveal reveal-delay-3">
+                            <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+                            <h3 class="mb-2">Advanced AI Modeling</h3>
+                            <p style="font-size:0.9rem;color:#94A3B8;line-height:1.65;">Our model learns from geospatial
+                                density data to find your perfect customer pockets, ignoring low-value areas.</p>
+                        </div>
+                        <div class="feature-card reveal reveal-delay-4">
+                            <div class="feature-icon"><i class="fa-solid fa-people-group"></i></div>
+                            <h3 class="mb-2">Lifestyle Matching</h3>
+                            <p style="font-size:0.9rem;color:#94A3B8;line-height:1.65;">Target by behavior, affluence,
+                                and lifestyle signals—not just basic age or gender demographics.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════ PRICING ══ -->
+        <section id="pricing" class="py-28" style="background:#F8F9FB;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <!-- Header -->
+                <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                    <div class="section-label"><i class="fa-solid fa-tag"></i> Flexible Pricing</div>
+                    <h2 class="text-4xl font-bold text-dark mb-4">A Plan for Every Stage of Growth</h2>
+                    <p style="font-size:1.0625rem; line-height:1.7; color:#475569;">
+                        Whether you run ads for your own business or manage campaigns for dozens of clients, we have a plan to suit your needs.
+                    </p>
+                </div>
+
+                <!-- Cards -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+
+                    <!-- ── PLAN 1: PROFESSIONAL ── -->
+                    <div class="pricing-card reveal reveal-delay-1">
+                        <div class="pricing-card-header">
+                            <div class="pricing-price-wrap">
+                                <div class="pricing-original">
+                                    <span class="pricing-currency-sm">$</span>
+                                    <span class="pricing-amount-sm pricing-strike">99</span>
+                                    <span class="pricing-period-sm">/mo</span>
+                                </div>
+                                <div class="pricing-current">
+                                    <span class="pricing-currency">$</span>
+                                    <span class="pricing-amount">69</span>
+                                    <span class="pricing-period">/mo</span>
+                                </div>
+                            </div>
+                            <h3 class="pricing-plan-name">Professional</h3>
+                            <p class="pricing-plan-desc">Ideal for small business owners running their own ad campaigns or freelancers managing a few clients.</p>
+                        </div>
+                        <div class="pricing-card-body">
+                            <ul class="pricing-features">
+                                <li><i class="fa-solid fa-check pricing-check"></i><span><strong>Unlimited</strong> Ad Campaigns</span></li>
+                                <li><i class="fa-solid fa-check pricing-check"></i><span><strong>10</strong> Market Geos</span></li>
+                                <li><i class="fa-solid fa-check pricing-check"></i><span>Audience AI Optimization</span></li>
+                                <li><i class="fa-solid fa-check pricing-check"></i><span>Multi-location Hyperlocal Support</span></li>
+                                <li><i class="fa-solid fa-check pricing-check"></i><span>Google, Meta &amp; Microsoft Support</span></li>
+                                <li><i class="fa-solid fa-check pricing-check"></i><span>Direct API Integration</span></li>
+                            </ul>
+                        </div>
+<!--                        <div class="pricing-card-footer">-->
+<!--                            <a href="https://radiustarget.com/auth/register"-->
+<!--                                class="pricing-btn pricing-btn-outline">-->
+<!--                                Sign Up for Free-->
+<!--                           </a>-->
+<!--                        </div>-->
+                    </div>
+
+                    <!-- ── PLAN 2: AGENCY (Featured) ── -->
+                    <div class="pricing-card pricing-card--featured reveal reveal-delay-2">
+                        <div class="pricing-badge">Recommended</div>
+                        <div class="pricing-card-header">
+                            <div class="pricing-price-wrap">
+                                <div class="pricing-original">
+                                    <span class="pricing-currency-sm">$</span>
+                                    <span class="pricing-amount-sm pricing-strike">249</span>
+                                    <span class="pricing-period-sm">/mo</span>
+                                </div>
+                                <div class="pricing-current">
+                                    <span class="pricing-currency pricing-currency--brand">$</span>
+                                    <span class="pricing-amount pricing-amount--brand">179</span>
+                                    <span class="pricing-period">/mo</span>
+                                </div>
+                            </div>
+                            <h3 class="pricing-plan-name">Agency</h3>
+                            <p class="pricing-plan-desc">Ideal for growing marketing agencies managing multiple client campaigns at scale.</p>
+                        </div>
+                        <div class="pricing-card-body">
+                            <ul class="pricing-features">
+                                <li><i class="fa-solid fa-check pricing-check pricing-check--brand"></i><span><strong>Unlimited</strong> Ad Campaigns</span></li>
+                                <li><i class="fa-solid fa-check pricing-check pricing-check--brand"></i><span><strong>Unlimited</strong> Market Geos</span></li>
+                                <li><i class="fa-solid fa-check pricing-check pricing-check--brand"></i><span>Audience AI Optimization</span></li>
+                                <li><i class="fa-solid fa-check pricing-check pricing-check--brand"></i><span>Multi-location Hyperlocal Support</span></li>
+                                <li><i class="fa-solid fa-check pricing-check pricing-check--brand"></i><span>Google, Meta &amp; Microsoft Support</span></li>
+                                <li><i class="fa-solid fa-check pricing-check pricing-check--brand"></i><span>Direct API Integration</span></li>
+                            </ul>
+                        </div>
+<!--                        <div class="pricing-card-footer">-->
+<!--                            <a href="https://radiustarget.com/auth/register"-->
+<!--                                class="pricing-btn pricing-btn-primary">-->
+<!--                                Sign Up for Free-->
+<!--                            </a>-->
+<!--                        </div>-->
+                    </div>
+
+                    <!-- ── PLAN 3: ENTERPRISE ── -->
+                    <div class="pricing-card reveal reveal-delay-3">
+                        <div class="pricing-card-header">
+                            <div class="pricing-price-wrap">
+                                <div class="pricing-current">
+                                    <span class="pricing-amount" style="font-size:1.75rem; letter-spacing:-0.03em;">Custom</span>
+                                </div>
+                            </div>
+                            <h3 class="pricing-plan-name">Enterprise</h3>
+                            <p class="pricing-plan-desc">Ideal for large agencies requiring bespoke AI solutions, white-labeling, and advanced modeling.</p>
+                        </div>
+                        <div class="pricing-card-body">
+                            <ul class="pricing-features">
+                                <li><i class="fa-solid fa-check pricing-check"></i><span><strong>Unlimited</strong> Ad Campaigns</span></li>
+                                <li><i class="fa-solid fa-check pricing-check"></i><span><strong>Unlimited</strong> Market Geos</span></li>
+                                <li><i class="fa-solid fa-check pricing-check"></i><span>Custom AI Modeling</span></li>
+                                <li><i class="fa-solid fa-check pricing-check"></i><span>White-Label Branding</span></li>
+                                <li><i class="fa-solid fa-check pricing-check"></i><span>Advanced AI/ML APIs</span></li>
+                                <li><i class="fa-solid fa-check pricing-check"></i><span>Dedicated Data Science Manager</span></li>
+                            </ul>
+                        </div>
+<!--                        <div class="pricing-card-footer">-->
+<!--                            <a href="https://radiustarget.com/request-access"-->
+<!--                                class="pricing-btn pricing-btn-outline">-->
+<!--                                Contact Sales-->
+<!--                            </a>-->
+<!--                        </div>-->
+                    </div>
+
+                </div>
+
+                <!-- Trust note -->
+                <p class="text-center mt-10 text-sm reveal" style="color:#94A3B8;">
+                    <i class="fa-solid fa-lock mr-1"></i> No credit card required &nbsp;·&nbsp; Cancel anytime &nbsp;·&nbsp; All plans include a free trial
+                </p>
+
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════ CTA ════ -->
+        <section id="contact" class="py-28">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="cta-inner text-center reveal">
+                    <div class="cta-glow"></div>
+                    <div class="relative z-10">
+                        <div class="section-label mx-auto w-fit mb-6"><i class="fa-solid fa-rocket"></i> Get Started
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to transform your ad performance?</h2>
+                        <p class="text-orange-50 text-lg mb-10" style="color:#475569;">Schedule a personalized
+                            walkthrough with our team.</p>
+
+                        <div class="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/20 max-w-lg mx-auto"
+                            style="background:#ffffff;border:1px solid #E8EDF3;">
+                            <p class="text-sm font-medium text-orange-50 mb-4 uppercase tracking-widest"
+                                style="color:#94A3B8;">Book a Call</p>
+                            <a id="btn-book-demo-footer" href="https://cal.com/radiustarget-sdfkbe/radiustarget-demo-use-case-review"
+                                onclick="return gtag_report_conversion(this.href);"
+                                class="flex items-center justify-center w-full px-8 py-4 bg-white text-secondary rounded-lg font-bold shadow-lg hover:bg-gray-100 transition mb-3">
+                                <i class="fa-regular fa-calendar-check mr-3"></i> Book a Demo
+                            </a>
+                            <p class="text-sm text-orange-600 mt-4">
+                                Or email us at
+                                <a href="#" data-email="Y29udGFjdEByYWRpdXN0YXJnZXQuY29t" class="underline">contact@radiustarget.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Footer -->
     <footer class="bg-white border-t border-gray-200 pt-12 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-crosshairs text-primary text-xl"></i>
+                    <img src="static/assets/images/logo/logo.svg" alt="RadiusTarget Logo"
+                        class="w-8 h-8" loading="lazy">
                     <span class="font-bold text-lg text-dark">RadiusTarget</span>
                 </div>
-                
-                <p class="text-sm text-gray-500">&copy; 2026 RadiusTarget Inc. All rights reserved.</p>
-                
+                <p class="text-sm text-gray-500">&copy; 2026 RadiusTarget.com All rights reserved.</p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-primary"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-primary"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://x.com/radiustarget" class="text-gray-400 hover:text-secondary"
+                        aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/radiustarget" class="text-gray-400 hover:text-secondary"
+                        aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Request Access Modal -->
+    <div id="access-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog"
+        aria-modal="true">
+        <div class="fixed inset-0 bg-gray-900/75 backdrop-blur-sm transition-opacity opacity-0" id="modal-backdrop">
+        </div>
+        <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div id="modal-panel"
+                    class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
+                    <div class="absolute right-0 top-0 pr-4 pt-4 z-10">
+                        <button type="button" id="close-modal-btn"
+                            class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none">
+                            <span class="sr-only">Close</span>
+                            <i class="fa-solid fa-xmark text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="px-6 py-6 lg:px-8">
+                        <div class="text-center mb-6">
+                            <div
+                                class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-orange-100 mb-4">
+                                <i class="fa-solid fa-rocket text-secondary text-xl"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold leading-6 text-gray-900" id="modal-title">Join Waitlist</h3>
+                            <p class="mt-2 text-sm text-gray-500">Priority access to state-of-the-art geo-targeting</p>
+                        </div>
+                        <form id="request-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Full Name
+                                    <span class="text-red-500">*</span></label>
+                                <div class="mt-1 relative rounded-md shadow-sm">
+                                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                        <i class="fa-regular fa-user text-gray-400 sm:text-sm"></i>
+                                    </div>
+                                    <input type="text" name="name" id="name" required
+                                        class="block w-full rounded-md border-0 py-2.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-secondary sm:text-sm sm:leading-6"
+                                        placeholder="">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Work Email
+                                    <span class="text-red-500">*</span></label>
+                                <div class="mt-1 relative rounded-md shadow-sm">
+                                    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                        <i class="fa-regular fa-envelope text-gray-400 sm:text-sm"></i>
+                                    </div>
+                                    <input type="email" name="email" id="email" required
+                                        class="block w-full rounded-md border-0 py-2.5 pl-10 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-secondary sm:text-sm sm:leading-6"
+                                        placeholder="">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="company_role"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Company / Role <span
+                                        class="text-gray-400 font-normal">(Optional)</span></label>
+                                <div class="mt-1">
+                                    <input type="text" name="company_role" id="company_role"
+                                        class="block w-full rounded-md border-0 py-2.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-secondary sm:text-sm sm:leading-6"
+                                        placeholder="">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="geo_needs" class="block text-sm font-medium leading-6 text-gray-900">Tell Us
+                                    About Your Usecase <span class="text-gray-400 font-normal">(Optional)</span></label>
+                                <div class="mt-1">
+                                    <textarea id="geo_needs" name="geo_needs" rows="2"
+                                        class="block w-full rounded-md border-0 py-2.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-secondary sm:text-sm sm:leading-6"
+                                        placeholder=""></textarea>
+                                </div>
+                            </div>
+                            <div class="pt-2">
+                                <button type="submit" id="submit-btn"
+                                    class="flex w-full justify-center items-center rounded-md bg-secondary px-3 py-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary transition-all">
+                                    <span id="btn-text">Join</span>
+                                    <i id="btn-spinner" class="fa-solid fa-circle-notch fa-spin ml-2 hidden"></i>
+                                </button>
+                            </div>
+                            <p id="form-status" class="hidden text-center text-sm font-medium mt-2"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="static/assets/js/script.js" defer></script>
+    <script src="static/assets/js/analytics.js" defer></script>
+    <script src="static/assets/js/modal.js" defer></script>
+
+    <!-- Scroll-reveal -->
+    <script>
+            (function () {
+                var els = document.querySelectorAll('.reveal');
+                var observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                els.forEach(function (el) { observer.observe(el); });
+            })();
+    </script>
+    <!-- email-reveal -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+                const link = document.querySelector("[data-email]");
+        const encoded = link.getAttribute("data-email");
+        link.href = "mailto:" + atob(encoded);
+    });
+    </script>
+
 </body>
+
 </html>
