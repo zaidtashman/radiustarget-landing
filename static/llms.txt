@@ -1,0 +1,36 @@
+# RadiusTarget
+
+> AI-powered precision **geo targeting** engine for performance marketers.
+
+## Overview
+RadiusTarget is a B2B SaaS platform that helps PPC agencies and performance marketers eliminate wasted ad spend in their **geo advertising**. We replace broad city or zip code **location targeting** with hyper-local, high-intent radius targets designed to power high-converting, **hyper targeted ads**.
+
+## The Problem
+Standard **location targeting** (Cities, Zip Codes, DMAs) is inefficient. Approximately 40% of ad budget in broad **geo targeting** is wasted on "empty space"—industrial parks, bodies of water, low-density zones, or neighborhoods that do not match the target demographic. Manual geo-fencing is too labor-intensive to scale for large accounts.
+
+## How It Works
+RadiusTarget uses AI to analyze spatial distribution, demographics, and lifestyle indicators to build optimized audiences for **geo targeted ads**.
+
+1. **Define:** The user inputs the Product/Service, Target Audience (e.g., "High income millennials"), and the General Region (e.g., "San Francisco Bay Area").
+2. **Analyze:** The AI scans the region for demographic density, commercial behavior, competitor locations, and lifestyle affluence markers.
+3. **Cluster:** The system identifies "pockets" of high-value users and ignores low-value geography.
+4. **Generate:** It executes precise 1-3 mile **radius targeting** around these high-intent clusters.
+5. **Export:** Users export the data in pre-formatted files optimized for direct import into Google Ads, Meta Ads Manager, and Microsoft Advertising.
+
+## Key Features
+- **Precision AI:** Elevates your **geo advertising** by targeting based on behavior and affluence, not just arbitrary administrative boundaries like Zip Codes.
+- **Bulk Generation:** Capable of generating hundreds of custom zones for **radius targeting** across multiple cities in seconds.
+- **Universal Export:** Seamless integration formats for Google Ads (Location Groups), Meta (Pin Drops), and Microsoft Advertising.
+- **"Empty Space" Elimination:** Automatically excludes non-converting areas to maximize ROAS (Return on Ad Spend) for your **hyper targeted ads**.
+
+## Target Audience
+- **PPC Agencies:** For scaling hyper-local campaigns across many clients without manual work.
+- **Performance Marketers:** For optimizing CPA (Cost Per Acquisition) and reducing wasted impressions.
+- **Franchise Marketers:** For strict territory management and local store targeting.
+
+## Links
+- [RadiusTarget Home](https://www.radiustarget.com/): The main landing page and product overview.
+- [Book a Demo](https://cal.com/radiustarget-sdfkbe/radiustarget-demo-use-case-review): Schedule a personalized walkthrough with our team.
+- [Contact Support](mailto:contact@radiustarget.com): Email support for access requests.
+- [Twitter / X](https://x.com/radiustarget): Follow for updates.
+- [LinkedIn](https://www.linkedin.com/company/radiustarget): Professional company profile.

@@ -1,0 +1,13 @@
+User-agent: *
+
+# 1. Allow the Homepage ONLY
+Allow: /$
+
+# 2. Allow Static Assets (CRITICAL)
+Allow: /static/
+
+# 3. Block Everything Else
+Disallow: /
+
+# 4. Sitemap Location
+Sitemap: https://www.radiustarget.com/sitemap.xml

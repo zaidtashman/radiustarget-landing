@@ -1,0 +1,12 @@
+# ZIP archives
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# JetBrains IDEs (.idea)
+.idea/
+
+# Logs
+*.log
