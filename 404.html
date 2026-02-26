@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>404 — Page Not Found | RadiusTarget</title>
+    <meta name="description" content="The page you were looking for doesn't exist.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" type="image/svg+xml" href="static/assets/images/logo/logo.svg">
+    <meta name="theme-color" content="#F75C30">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="static/assets/css/style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                        serif: ['DM Serif Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#F75C30',
+                        accent: '#10B981',
+                        dark: '#0F172A',
+                        cream: '#F9F9F9',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Animated radar rings */
+        @keyframes ping-slow {
+            0%   { transform: scale(1);   opacity: 0.6; }
+            100% { transform: scale(2.4); opacity: 0; }
+        }
+        @keyframes ping-slower {
+            0%   { transform: scale(1);   opacity: 0.4; }
+            100% { transform: scale(2.8); opacity: 0; }
+        }
+        .ring-1-anim { animation: ping-slow   2s cubic-bezier(0,0,0.2,1) infinite; }
+        .ring-2-anim { animation: ping-slower 2s cubic-bezier(0,0,0.2,1) infinite 0.4s; }
+    </style>
+</head>
+
+<body class="font-sans bg-cream text-dark antialiased">
+
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="/" class="flex-shrink-0 flex items-center gap-2 cursor-pointer" aria-label="RadiusTarget Home">
+                        <img src="static/assets/images/logo/logo.svg" alt="RadiusTarget Logo" class="w-8 h-8" width="32" height="32">
+                        <span class="font-bold text-xl tracking-tight text-dark">RadiusTarget</span>
+                    </a>
+                </div>
+                <a href="/"
+                   class="inline-flex items-center gap-2 bg-secondary hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors">
+                    <i class="fa-solid fa-house text-xs"></i> Go Home
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="min-h-screen flex flex-col items-center justify-center px-4 pt-20">
+        <div class="max-w-2xl w-full text-center py-24">
+
+            <!-- Radar / pin illustration -->
+            <div class="relative inline-flex items-center justify-center mb-10">
+                <!-- Pulse rings -->
+                <span class="absolute inline-flex h-20 w-20 rounded-full bg-secondary/20 ring-1-anim"></span>
+                <span class="absolute inline-flex h-20 w-20 rounded-full bg-secondary/10 ring-2-anim"></span>
+                <!-- Icon circle -->
+                <div class="relative flex items-center justify-center w-20 h-20 rounded-full bg-orange-100">
+                    <i class="fa-solid fa-location-dot text-secondary text-3xl"></i>
+                </div>
+            </div>
+
+            <!-- 404 headline -->
+            <p class="text-sm font-semibold text-secondary uppercase tracking-widest mb-3">Error 404</p>
+            <h1 class="font-serif text-5xl sm:text-6xl font-bold text-dark mb-4 leading-tight">
+                Target Not Found
+            </h1>
+            <p class="text-lg text-gray-500 mb-10 max-w-md mx-auto">
+                Looks like this page drifted outside our targeting radius. Let's get you back on the map.
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="/"
+                   class="inline-flex items-center gap-2 bg-secondary hover:bg-orange-600 text-white font-semibold px-7 py-3.5 rounded-lg transition-colors shadow-sm">
+                    <i class="fa-solid fa-arrow-left text-sm"></i> Back to Home
+                </a>
+                <a href="mailto:support@radiustarget.com"
+                   class="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-dark font-semibold px-7 py-3.5 rounded-lg border border-gray-200 transition-colors">
+                    <i class="fa-regular fa-envelope text-sm text-secondary"></i> Contact Support
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <img src="static/assets/images/logo/logo.svg" alt="RadiusTarget Logo" class="w-8 h-8" loading="lazy">
+                    <span class="font-bold text-lg text-dark">RadiusTarget</span>
+                </div>
+                <p class="text-sm text-gray-500">&copy; 2026 RadiusTarget.com All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="https://x.com/radiustarget" class="text-gray-400 hover:text-secondary" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/company/radiustarget" class="text-gray-400 hover:text-secondary" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
