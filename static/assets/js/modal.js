@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
 
             try {
-                const response = await fetch('https://radiustarget.com/api/request-access', {
+                const response = await fetch('https://app.radiustarget.com/api/request-access', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
