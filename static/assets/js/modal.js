@@ -53,10 +53,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event Listeners
     if (openBtn) {
-        openBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            showModal();
-        });
+        // openBtn.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     showModal();
+        // });
     }
 
     if (closeBtn) {

@@ -102,4 +102,19 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSlider();
         setTimeout(syncMapWidth, 100);
     }
+
+    /* --------------------------------------------------
+       Email Link Handling (Base64 Anti-Spam)
+    -------------------------------------------------- */
+    const emailLinks = document.querySelectorAll('[data-email]');
+    emailLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const encodedEmail = this.getAttribute('data-email');
+            if (encodedEmail) {
+                const decodedEmail = atob(encodedEmail);
+                window.location.href = 'mailto:' + decodedEmail;
+            }
+        });
+    });
 });
